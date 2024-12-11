@@ -1,3 +1,4 @@
+#name of the workflow file
 name: Greeting
 # on: push
 on: workflow_dispatch
