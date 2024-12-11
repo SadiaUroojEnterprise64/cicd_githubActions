@@ -2,6 +2,7 @@ name: Deploy Dist
 # on: push
 on: push
 jobs:
+    #job1
     test:
         runs-on: ubuntu-latest    
                     # steps that GitHub has to do to complete the job
@@ -23,8 +24,25 @@ jobs:
                 - name: Run Test
                 #will run the test script from the package.json
                   run: npm run test
+    #job2
+    deploy: 
+            runs-on: ubuntu-latest    
+                    # steps that GitHub has to do to complete the job
+            steps:
+                - name: Get Code
+                # checkout to the current branch
+                  uses: actions/checkout@v4
+                - name: Install Node 20
+                # setting up the node environment
+                  uses: actions/setup-node@v4
+                  with:
+                    node-version: 20
+
+                - name: Intall the dependencies
+                  run: npm install
                 
+                - name: Build Project
+                  run: npm run build
+                - name: Deploy
+                  run: echo "Deploy Successful"
                 
-          
-              
-            
