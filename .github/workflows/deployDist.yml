@@ -26,6 +26,8 @@ jobs:
                   run: npm run test
     #job2
     deploy: 
+            #for running the job sequentially
+            needs: test
             runs-on: ubuntu-latest    
                     # steps that GitHub has to do to complete the job
             steps:
