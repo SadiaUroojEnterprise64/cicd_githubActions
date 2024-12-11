@@ -3,15 +3,14 @@ name: Greeting
 on: push
 jobs:
     test:
-        runs-on: ubuntu-latest
-        steps:
-            strategy:
+        runs-on: ubuntu-latest    
+        strategy:
                 matrix:
                   # the version of node that can be executable
                   node-version: [18.x, 20.x, 22.x]
           
               # steps that GitHub has to do to complete the job
-              steps:
+        steps:
                 # checkout to the current branch
                 - uses: actions/checkout@v4
                 - name: Use Node.js ${{ matrix.node-version }}
@@ -30,10 +29,6 @@ jobs:
                 - name: Run Test
                 #will run the test script from the package.json
                   run: npm run test
-
-
-
-
                 
                 - name: Get Code
           
